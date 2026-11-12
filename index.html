@@ -454,6 +454,27 @@
             margin-bottom: 1.5rem;
         }
 
+        .modal-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 0.55rem 1.1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border: 1px solid #bfdbfe;
+            transition: var(--transition);
+        }
+
+        .modal-link-btn:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
         .modal-grid-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -659,7 +680,7 @@
                 <ul>
                     <li>Mikrokontroler & RFID</li>
                     <li>Keypad PIN System</li>
-                    <li>Integrasi QRIS Payment</li>
+                    <li>Integrasi QRIS & Midtrans</li>
                     <li>Komunikasi IoT-Mobile</li>
                 </ul>
             </div>
@@ -683,7 +704,32 @@
 
         <div class="projects-grid">
 
-            <!-- 1. SPANDUK ONLINE (10 FOTO) -->
+            <!-- 1. SMART SHOP / INTANSHOP (7 FOTO) -->
+            <div class="project-card">
+                <div class="carousel-container">
+                    <span class="img-counter"><i class="fas fa-images"></i> 7 Foto</span>
+                    <div class="carousel-slide" id="slide-shop">
+                        <img src="images/shop1.png" alt="SmartShop 1" onclick="openModal('m-shop')" onerror="this.src='https://via.placeholder.com/360x230'">
+                        <img src="images/shop2.png" alt="SmartShop 2" onclick="openModal('m-shop')" onerror="this.src='https://via.placeholder.com/360x230'">
+                        <img src="images/shop3.png" alt="SmartShop 3" onclick="openModal('m-shop')" onerror="this.src='https://via.placeholder.com/360x230'">
+                        <img src="images/shop4.png" alt="SmartShop 4" onclick="openModal('m-shop')" onerror="this.src='https://via.placeholder.com/360x230'">
+                    </div>
+                    <button class="carousel-btn prev" onclick="moveSlide('slide-shop', -1)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next" onclick="moveSlide('slide-shop', 1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">SmartShop Digital Commerce (IntanShop)</h3>
+                    <p class="project-desc">Platform e-commerce produk gadget & elektronik dengan filter kategori, kalkulasi ongkir Aceh, serta integrasi Midtrans Snap.</p>
+                    <div class="project-tags">
+                        <span class="tag">Laravel</span>
+                        <span class="tag">Midtrans API</span>
+                        <span class="tag">E-Commerce</span>
+                    </div>
+                    <button class="btn-detail" onclick="openModal('m-shop')">Lihat Rincian & 7 Foto <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- 2. SPANDUK ONLINE (10 FOTO) -->
             <div class="project-card">
                 <div class="carousel-container">
                     <span class="img-counter"><i class="fas fa-images"></i> 10 Foto</span>
@@ -708,7 +754,7 @@
                 </div>
             </div>
 
-            <!-- 2. SIM PROYEK DESA (9 FOTO) -->
+            <!-- 3. SIM PROYEK DESA (9 FOTO) -->
             <div class="project-card">
                 <div class="carousel-container">
                     <span class="img-counter"><i class="fas fa-images"></i> 9 Foto</span>
@@ -733,7 +779,7 @@
                 </div>
             </div>
 
-            <!-- 3. INVENTARIS ZAKAT (8 FOTO) -->
+            <!-- 4. INVENTARIS ZAKAT (8 FOTO) -->
             <div class="project-card">
                 <div class="carousel-container">
                     <span class="img-counter"><i class="fas fa-images"></i> 8 Foto</span>
@@ -758,7 +804,7 @@
                 </div>
             </div>
 
-            <!-- 4. PEMESANAN KUE (5 FOTO) -->
+            <!-- 5. PEMESANAN KUE (5 FOTO) -->
             <div class="project-card">
                 <div class="carousel-container">
                     <span class="img-counter"><i class="fas fa-images"></i> 5 Foto</span>
@@ -783,7 +829,7 @@
                 </div>
             </div>
 
-            <!-- 5. IoT PINTU OTOMATIS (5 FOTO) -->
+            <!-- 6. IoT PINTU OTOMATIS (5 FOTO) -->
             <div class="project-card">
                 <div class="carousel-container">
                     <span class="img-counter"><i class="fas fa-images"></i> 5 Foto</span>
@@ -808,7 +854,7 @@
                 </div>
             </div>
 
-            <!-- 6. DESAIN GRAFIS (5 FOTO) -->
+            <!-- 7. DESAIN GRAFIS (5 FOTO) -->
             <div class="project-card">
                 <div class="carousel-container">
                     <span class="img-counter"><i class="fas fa-images"></i> 5 Foto</span>
@@ -936,6 +982,21 @@
 
         // 2. DATA PROYEK & SELURUH DOKUMEN GAMBAR
         const modalData = {
+            'm-shop': {
+                title: "SmartShop Digital Commerce (IntanShop)",
+                desc: "Platform e-commerce produk gadget dan elektronik dengan integrasi pembayaran digital serta sistem logistik Aceh.",
+                liveUrl: "https://intanshop.my.id/products",
+                details: [
+                    "Katalog produk gadget & elektronik lengkap dengan filter kategori, pencarian, dan manajemen stok otomatis.",
+                    "Fitur keranjang belanja, pelacakan pesanan, serta perhitungan tarif pengiriman khusus 23 Kabupaten/Kota di Aceh.",
+                    "Integrasi Payment Gateway Midtrans Snap (Virtual Account BCA/Mandiri/BNI/BRI, QRIS, GoPay, ShopeePay, Kartu Kredit)."
+                ],
+                images: [
+                    "images/shop1.png", "images/shop2.png", "images/shop3.png",
+                    "images/shop4.png", "images/shop5.png", "images/shop6.png",
+                    "images/shop7.png"
+                ]
+            },
             'm-spanduk': {
                 title: "Aplikasi Pemesanan Spanduk Online QRIS",
                 desc: "Platform pemesanan cetak spanduk kustom terintegrasi pembayaran digital otomatis.",
@@ -1026,6 +1087,9 @@
         function openModal(key) {
             const data = modalData[key];
             let listHtml = data.details.map(item => `<li>${item}</li>`).join('');
+            let liveLinkHtml = data.liveUrl 
+                ? `<a href="${data.liveUrl}" target="_blank" class="modal-link-btn"><i class="fas fa-external-link-alt"></i> Kunjungi Website Live (${data.liveUrl})</a>` 
+                : '';
             
             let galleryHtml = data.images.map(imgSrc => 
                 `<img src="${imgSrc}" onclick="openLightbox('${imgSrc}')" onerror="this.src='https://via.placeholder.com/180x130'">`
@@ -1034,7 +1098,8 @@
             modalBody.innerHTML = `
                 <h3 class="modal-header-title">${data.title}</h3>
                 <p class="modal-desc">${data.desc}</p>
-                <h4 style="margin-top: 1rem; font-size: 1.1rem;">Rincian & Fitur Utama:</h4>
+                ${liveLinkHtml}
+                <h4 style="margin-top: 0.5rem; font-size: 1.1rem;">Rincian & Fitur Utama:</h4>
                 <ul style="margin-left: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem;">${listHtml}</ul>
                 <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Galeri Foto Proyek (${data.images.length} Gambar) — <small style="color:var(--primary); cursor:pointer;">Klik gambar untuk perbesar</small>:</h4>
                 <div class="modal-grid-gallery">${galleryHtml}</div>
